@@ -1,0 +1,100 @@
+:root {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #745E73;
+  color: #fff;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+.intro {
+  text-align: center;
+}
+.intro h1 {
+  color: #EFEFEF;
+  font-size: 3rem;
+  margin: 60px 0 0;
+  font-weight: bold;
+  font-family: monospace;
+}
+@media screen and (min-width: 800px) {
+  .intro h1 {
+    font-size: 4rem;
+  }
+}
+.intro p {
+  color: #E0CF79;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.intro a {
+  color: #40DFBB;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.swiper-container {
+  width: 100%;
+  height: auto;
+  
+}
+@media screen and (min-width: 800px) {
+  .swiper-container {
+    width: 100%;
+  }
+}
+
+.swiper-slide {
+  background: #fff;
+  color: #333;
+  font-size: 1.8rem;
+  display: flex;
+  margin-top: 44px;
+  width: 100%;
+  justify-content: center;
+  
+}
+.swiper-slide-active{
+  max-height: fit-content;
+}
+
+.swiper-container-horizontal > .swiper-pagination {
+  top: 0;
+  bottom: auto;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
+}
+.scroll-view-one{
+  /* width: 100%; */
+  height: -webkit-fill-available;
+}
+.scroll-view-two{
+  overflow: auto;
+  /* width: 100%; */
+  height: -webkit-fill-available;
+}
+.scroll-view-three{
+  overflow: auto;
+  /* width: 100%; */
+  height: -webkit-fill-available;
+}
+
+
+
+

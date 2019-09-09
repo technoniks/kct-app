@@ -1,0 +1,78 @@
+<div class="body">
+  <div 
+    class="bigBox"
+    *ngFor="let event of (events | async)?.reverse()">
+    <div 
+      class="box"
+      (click)="onClick(event)">
+      <div 
+        class="left"
+        [style.border-top-right-radius]="(selected==event)? '2em':'0em'"
+        [style.border-top-left-radius]="(selected==event)? '2em':'0em'"
+        [style.border-bottom-left-radius]="(selected==event)? '2em':'0em'"
+        [style.border-bottom-right-radius]="(selected==event)? '2em':'0em'">
+        <img class="logo" src="assets/{{event.sport}}.png" alt="">
+      </div>
+      <div 
+        class="right"
+        [style.background-color]="(selected==event)? '#fff':'#fff'">
+        <div class="upUp">
+          <div class="up"><b><b>{{event.winnerBranch}}</b> wins against <b>{{event.runnerBranch}}</b>
+          </b></div>
+          <div class="session"><b>{{event.session}}</b></div>
+        </div>
+        <div class="down">
+          <div class="score"><b>{{event.winnerScore}}/{{event.runnerScore}}</b></div>
+          <div class="time">
+            <div class="date"><b>{{event.date}}</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div 
+      [@fade]="selected==event"
+      class="detailBox"
+      *ngIf="selected==event">
+      <div class="labels">
+        <div class="sport"><b><b>{{event.sport}}</b></b></div>
+        <div *ngIf="event.type=='Personal'"><b>Player --></b></div>
+        <div *ngIf="!(event.type=='Branch')"><b>Year       --></b></div>
+        <div><b>Branch --></b></div>
+        <div><b>Score  --></b></div>
+        <div><b>Points --></b></div>
+      </div>
+      <div class="winner">
+        <div class="title"><b>WINNER-Info</b></div>
+        <div *ngIf="event.type=='Personal'"><b>{{event.winner}}</b></div>
+        <div><b>{{event.winnerYear}}</b></div>
+        <div><b>{{event.winnerBranch}}</b></div>
+        <div><b>{{event.winnerScore}}</b></div>
+        <div><b>{{event.winnerPoint}}</b></div>
+      </div>
+      <div class="runner">
+        <div class="title"><b>RUNNER-Info</b></div>
+        <div *ngIf="event.type=='Personal'"><b>{{event.runner}}</b></div>
+        <div><b>{{event.runnerYear}}</b></div>
+        <div><b>{{event.runnerBranch}}</b></div>
+        <div><b>{{event.runnerScore}}</b></div>
+        <div><b>{{event.runnerPoint}}</b></div>
+      </div>
+    </div> 
+    <div *ngIf="!(selected==event)"  class="separator"></div>
+  </div>
+</div>
+
+
+<!-- <div class="event-bar card">
+  <img src="assets/Logo.png" alt="sorry">
+  <div>
+    <h1>Hello</h1>
+  </div>
+</div>
+<div class="timeline">
+  <div
+    class="event"
+    *ngFor="let item of courses$ | async">
+    {{item.sport}}
+  </div>
+</div> -->

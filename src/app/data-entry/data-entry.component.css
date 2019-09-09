@@ -1,0 +1,33 @@
+label {
+    float: left;
+    font-size: 1em;
+}
+th{
+    width: 25%;
+}
+.form-group{
+    margin: 8px;
+}
+.mat-form-field{
+    font-size: x-large;
+    margin: 0.2em;
+}
+.mat-form-field-infix{
+    padding: 8px 0;
+}
+.form{
+    text-align: center;
+}
+.double{
+    margin: 0.1em;
+}
+div.progress{
+    margin: 8px;
+ }
+ div.selectButton,div.uploadButton,div.task{
+     font-size: 0.6em;
+     margin: 8px;
+ }
+ div.detail{
+     margin: 1em;
+ }

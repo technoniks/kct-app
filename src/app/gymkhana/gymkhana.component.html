@@ -1,0 +1,8 @@
+<div class="gallery">
+  <div
+    *ngFor="let img of (images | async)?.reverse()" 
+    class="imageUp">
+    <img class="image" src="{{img.imgUrl}}" alt="{{img.name}}">
+    <div class="info">its instrument vale celebrating winning table tennis</div>
+  </div>
+</div>

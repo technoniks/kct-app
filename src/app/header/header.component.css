@@ -1,0 +1,47 @@
+div.login{
+  margin: 4px;
+}
+.btn{
+  
+}
+.header{
+    height: 65px;
+    background-image: url("/src/assets/headerBK.png")
+  }
+div.title{
+  width: 100%;
+}
+.app-name{
+  padding-left: 8px;
+  float: left;
+  line-height: 2em;
+  font-size: 2em;
+  color: darkslategray;
+  font-family: 'Comic Sans MS Header';
+}
+
+.image{
+  margin: 2px;
+  float: left;
+  width: 4em;
+  background-color: darkgray;
+  border-radius: 2em;
+  background-repeat: round;
+  background-image: url("/assets/tens.png");
+}
+.menu{
+  float: right;
+}
+.home{
+  float: right;
+  width: 4em;
+  padding: 10px;
+}
+.info{
+  float: right;
+  width: 4em;
+  padding: 14px;
+}
+div.popUps{
+  max-width: 41em;
+}

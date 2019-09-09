@@ -1,0 +1,122 @@
+div.bigBox{
+    /* background-color: rgb(119, 119, 119) */
+}
+div.box {
+    width: 100%;  
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    /* border: 0.5px solid rgba(255, 255, 255, 0); */
+    border-radius: 0.55rem;
+    /* background-color:rgb(110, 214, 255);    */
+    margin: 0px 0 6px 0px;
+}
+
+div.left {
+    /* background-color:rgb(110, 214, 255);    */
+    float: left;
+    width: 20%;
+    height: auto;
+    background-color:#fff; 
+    /* border-top-left-radius: 6em;
+    border-top-right-radius: 6em;
+    border-bottom-left-radius: 6em; */
+}
+div.right {
+    margin-left: 1px;
+    padding: 0 4px;
+    /* background-color: rgb(229, 255, 0); */
+    float: right;
+    width: 80%;
+    height: auto;
+    background-color:rgb(223, 227, 238); 
+
+}
+.logo{
+    width: 100%;
+    padding: 4px 4px 0 4px;
+}
+.sport{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color:rgb(229, 255, 0);
+    
+}
+.up{
+    margin-top: 14px;
+    float: left;
+    font-size: 0.6em;
+    color: #000;
+}
+.down{
+    float: left;
+    width: 100%;
+}
+.session{
+    float: right;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 0.4em;
+    margin-top: 25px;
+    color: rgb(207, 1, 1)
+}
+.score{
+    float: left;
+    padding-left: 18px;
+    font-size: 0.6em;
+    line-height: 12px;
+    color: rgb(73, 49, 49);
+}
+.time{
+    float: right;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 0.4em;
+    color: rgb(207, 1, 1)
+}
+.detailBox{
+
+}
+.title{
+    color: rgb(255, 255, 255);
+    background-color: rgb(49, 49, 49)
+}
+.labels{
+    width: 30%;
+    float: left;
+    font-size: 0.4em;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    height: auto;
+    background-color: #d1d1d1;
+    margin-right: 4px;
+    margin-left: 6px;
+}
+.winner{
+    font-size: 0.4em;
+    width: 30%;
+    float: left;
+    text-align: center;
+    background-color: rgb(209, 209, 209);
+    margin-right: 4px;
+    height: auto;
+}
+.runner{
+    font-size: 0.4em;
+    text-align: center;
+    width: 30%;
+    float: left;
+    background-color: rgb(209, 209, 209);
+    
+}
+
+.separator{
+    height: 1px;
+    /* width: 100%; */
+    background: rgb(230, 230, 230);
+    margin: 10px;
+}

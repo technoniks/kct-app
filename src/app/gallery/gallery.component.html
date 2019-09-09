@@ -1,0 +1,51 @@
+<div class="box" >
+  <!-- <div *ngIf="currentUpload">
+    <div  class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+      </div>
+      <div class="task">
+        Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+      </div>
+      
+  </div>
+  
+  <div class="selectButton">
+    <input
+      class="btn btn-primary"
+      type="file" 
+      (change)="detectFiles($event)" 
+      accept=".png,.jpg">
+  </div>
+  <div class="uploadButton">
+    <button
+      class="btn btn-primary"
+      [disabled]="!selectedFiles"
+      (click)="uploadSingle()">
+      Upload Image
+    </button>
+  </div> -->
+  <div class="gallery">
+    <div
+      *ngFor="let img of (images | async)?.reverse()" 
+      class="imageUp">
+      <img class="image" src="{{img.imgUrl}}" alt="{{img.name}}">
+      <div class="info"><b>{{img.detail}}</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- <div *ngIf="currentUpload">
+  <div class="progress">
+    <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+  </div>
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+</div>
+<label>
+  <input type="file" (change)="detectFiles($event)" accept=".png,.jpg">
+</label>
+
+<button
+  [disabled]="!selectedFiles"
+  (click)="uploadSingle()">
+  Upload Single
+</button> -->

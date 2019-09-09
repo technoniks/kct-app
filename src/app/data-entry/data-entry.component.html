@@ -1,0 +1,312 @@
+
+<div class="box" >
+  <div *ngIf="currentUpload">
+    <div  class="progress">
+        <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div>
+      </div>
+      <div class="task">
+        Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+      </div>
+    
+  </div>
+  
+  <div class="selectButton">
+    <input
+      class="btn btn-primary"
+      type="file" 
+      (click)="detectFiles($event)" 
+      accept=".png,.jpg">
+  </div>
+  <div class="detail">
+    <textarea [(ngModel)]="detail" id="" cols="30" rows="5"></textarea>
+  </div>
+  <div class="uploadButton">
+    <button
+      class="btn btn-primary"
+      [disabled]="!selectedFiles"
+      (click)="uploadSingle()">
+      Upload Image
+    </button>
+  </div>
+</div>
+
+<!-- /////////////// -->
+<form 
+  class="form"
+  #eventData="ngForm"
+  (ngSubmit)="onSubmit(eventData)">
+  <input 
+    hidden
+    name="$key" 
+    #$key="ngModel" 
+    [(ngModel)]="dataService.selectedEvent.$key">
+ <!-- <p>{{eventData.value.type}}</p> -->
+    <table class="double">
+        <tr>
+          <th> 
+            <div class="form-group">
+              <label>Sport Type</label>
+              <select 
+                required
+                name=type
+                #type="ngModel"
+                [(ngModel)]="dataService.selectedEvent.type"
+                class="form-control">
+                <option
+                  *ngFor="let item of types"
+                  [value]="item">{{item}}</option>
+            </select>
+          </div>
+        </th>
+          <th>
+            <div class="form-group">
+              <label>Select Gender</label>
+              <select 
+                required
+                name=gender
+                #gender="ngModel"
+                [(ngModel)]="dataService.selectedEvent.gender"
+                class="form-control">
+                <option
+                  *ngFor="let item of genders"
+                  [value]="item">{{item}}</option>
+              </select>
+            </div>
+          </th>
+        </tr>
+      </table>
+    <table class="double">
+      <tr>
+        <th> 
+          <div class="form-group">
+            <label>Select Session</label>
+            <select 
+              required
+              name=session
+              #session="ngModel"
+              [(ngModel)]="dataService.selectedEvent.session"
+              class="form-control">
+              <option
+                *ngFor="let item of sessions"
+                [value]="item">{{item}}</option>
+          </select>
+        </div>
+      </th>
+        <th>
+          <div class="form-group">
+            <label>Select Sport</label>
+            <select 
+              required
+              name=sport
+              #sport="ngModel"
+              [(ngModel)]="dataService.selectedEvent.sport"
+              class="form-control">
+              <option
+                *ngFor="let item of sports"
+                [value]="item">{{item}}</option>
+            </select>
+          </div>
+        </th>
+      </tr>
+    </table>
+    <table *ngIf="eventData.value.type==='Personal'">
+      <tr>
+        <th>
+          <div class="form-group">
+              <label>Winner Name</label>
+              <input 
+                required
+                name="winner"
+                class="form-control"
+                type="text" 
+                #winner="ngModel"
+                [(ngModel)]="dataService.selectedEvent.winner">
+          </div>
+        </th>
+        <th>
+          <div 
+            class="form-group">
+              <label>Runner Name</label>
+              <input 
+                required
+                name="runner"
+                class="form-control"
+                type="text" 
+                #runner="ngModel"
+                [(ngModel)]="dataService.selectedEvent.runner">
+          </div>
+        </th>
+      </tr>
+    </table>
+  
+    <table *ngIf="(eventData.value.type === 'Personal') || (eventData.value.type === 'Class')">
+        <tr>
+          <th> 
+            <div class="form-group">
+              <label>Winner Year</label>
+              <select 
+                required
+                name=winnerYear
+                #winnerYear="ngModel"
+                [(ngModel)]="dataService.selectedEvent.winnerYear"
+                class="form-control">
+                <option
+                  *ngFor="let item of years"
+                  [value]="item">{{item}}</option>
+            </select>
+          </div>
+        </th>
+          <th>
+            <div class="form-group">
+              <label>Runner Year</label>
+              <select 
+                required
+                name=runnerYear
+                #runnerYear="ngModel"
+                [(ngModel)]="dataService.selectedEvent.runnerYear"
+                class="form-control">
+                <option
+                  *ngFor="let item of years"
+                  [value]="item">{{item}}</option>
+              </select>
+            </div>
+          </th>
+        </tr>
+      </table>
+    
+    <table>
+      <tr>
+        <th> 
+          <div class="form-group">
+            <label>Winner Branch</label>
+            <select 
+              required
+              name=winnerBranch
+              #winnerBranch="ngModel"
+              [(ngModel)]="dataService.selectedEvent.winnerBranch"
+              class="form-control">
+              <option
+                *ngFor="let item of branches"
+                [value]="item">{{item}}</option>
+          </select>
+        </div>
+      </th>
+        <th>
+          <div class="form-group">
+            <label>Runner Branch</label>
+            <select 
+              required
+              name=runnerBranch
+              #runnerBranch="ngModel"
+              [(ngModel)]="dataService.selectedEvent.runnerBranch"
+              class="form-control">
+              <option
+                *ngFor="let item of branches"
+                [value]="item">{{item}}</option>
+            </select>
+          </div>
+        </th>
+      </tr>
+    </table>
+
+    <table>
+        <tr>
+          <th> 
+            <div class="form-group">
+              <label>Winner Score</label>
+              <select 
+                required
+                name=winnerScore
+                #winnerScore="ngModel"
+                [(ngModel)]="dataService.selectedEvent.winnerScore"
+                class="form-control">
+                <option
+                  *ngFor="let item of scores"
+                  [value]="item">{{item}}</option>
+            </select>
+          </div>
+        </th>
+          <th>
+            <div class="form-group">
+              <label>Runner Score</label>
+              <select 
+                required
+                name=runnerScore
+                #runnerScore="ngModel"
+                [(ngModel)]="dataService.selectedEvent.runnerScore"
+                class="form-control">
+                <option
+                  *ngFor="let item of scores"
+                  [value]="item">{{item}}</option>
+              </select>
+            </div>
+          </th>
+        </tr>
+      </table>
+
+      <table>
+          <tr>
+            <th> 
+              <div class="form-group">
+                <label>Winner Points</label>
+                <select 
+                  required
+                  name=winnerPoint
+                  #winnerPoint="ngModel"
+                  [(ngModel)]="dataService.selectedEvent.winnerPoint"
+                  class="form-control">
+                  <option
+                    *ngFor="let item of points"
+                    [value]="item">{{item}}</option>
+              </select>
+            </div>
+          </th>
+            <th>
+              <div class="form-group">
+                <label>Runner Points</label>
+                <select 
+                  required
+                  name=runnerPoint
+                  #runnerPoint="ngModel"
+                  [(ngModel)]="dataService.selectedEvent.runnerPoint"
+                  class="form-control">
+                  <option
+                    *ngFor="let item of points"
+                    [value]="item">{{item}}</option>
+                </select>
+              </div>
+            </th>
+          </tr>
+        </table>
+      
+    
+    
+<!-- 
+  <div class="form-group">
+    <input 
+      required
+      class="form-control"
+      type="text" 
+      #name="ngModel"
+      placeholder="Sport type"
+      [(ngModel)]="dataService.selectedEvent.name">
+  </div>
+<p>{{type}}</p> -->
+  <!-- <select class="btn-group">
+    <option 
+      *ngFor="let item of sportType"
+      [value]="item">{{item}}</option>
+  </select> -->
+
+  <div 
+    class="form-group"
+    *ngIf="eventData.valid">
+    <button 
+      class="btn btn-primary"
+      type="submit">
+      <span class="glyphicon glyphicon-cloud-upload"></span>
+      Submit
+    </button>
+  </div>
+</form>
+

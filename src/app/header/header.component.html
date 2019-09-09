@@ -1,0 +1,21 @@
+
+<div *ngIf="isToggle" class="login">
+	<input type="text" [(ngModel)]="data" [placeholder]="placeholder">
+	<button class="btn btn-success" (click)="login()">Log In</button>
+</div>
+<div class="header">
+	<div class="title">
+		<div class="imgUp">
+			<img class="image" src="assets/Logo.png" alt="~"
+			(dblclick)="doubleClick()">
+		</div>
+		<div class="app-name fa-glass"><b><b>KCT</b></b></div>
+		<img class="info" (click)="checkDeveloper()" src="assets/about.svg" alt="Developer">
+		<img class="home" (click)="checkGymkhana()" src="assets/home.png" alt="Gymkhana">
+	</div>
+</div>
+<div class="popUps">
+	<app-data-entry *ngIf="isLogged"></app-data-entry>
+	<gymkhana *ngIf="isGymkhana"></gymkhana>
+	<developer *ngIf="isDeveloper"></developer>
+</div>
